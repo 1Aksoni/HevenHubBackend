@@ -11,7 +11,11 @@ import { verifyJWT } from "../middlewares/auth.middleware.js";
 const router = Router();
 
 // Route for customer registration
-router.route("/register").post(registerCustomer);
+router.route("/register").post(async (req, res, next) => {
+  console.log("Registration request received:", req.body);
+  next(); // Continue to the actual handler
+}, registerCustomer);
+
 
 // Route for customer login
 router.route("/login").post(loginCustomer);
