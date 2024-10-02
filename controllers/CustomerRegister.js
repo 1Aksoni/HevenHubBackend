@@ -122,7 +122,7 @@ const logoutUser = asyncHandler(async (req, res) => {
   // Step 2: Set options for cookies
   const options = {
       httpOnly: true,
-      secure: true, // Set to true if using HTTPS
+      secure: process.env.NODE_ENV === 'production', // Set to true if using HTTPS
       sameSite: 'Strict', // Optional: Set SameSite attribute for additional security
   };
 
