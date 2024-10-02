@@ -22,5 +22,5 @@ app.use("/api/v1/users", userRouter);
 //     .catch((err) => res.status(500).json({ error: err.message })); // Improved error handling
 // });
 
-app.use("/api/v1/homeData", homeDataRouter);
+app.use("/api/v1/homedata", homeDataRouter);
 export { app };

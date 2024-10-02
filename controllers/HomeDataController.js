@@ -3,13 +3,13 @@ import HomeDataModel from "../models/HomeDataModel.js"; // Import the HomeData m
 // Controller function to fetch all home data
 export const getHomeData = async (req, res) => {
   try {
-    console.log("Fetching home data..."); // Log to see if the route is reached
-    const homeData = await HomeDataModel.find();
-    console.log(homeData); // Log the data fetched from the database
-    res.json(homeData);
+    const data = await HomeDataModel.find();
+    if (data.length === 0) {
+      return res.status(404).json({ message: "No data found in the collection" });
+    }
+    res.status(200).json(data); // Send data as a JSON response
   } catch (error) {
-    console.error("Error fetching home data:", error); // Log errors
-    res.status(500).json({ message: "Failed to fetch home data" });
+    res.status(500).json({ message: "Error fetching data", error: error.message });
   }
 };
 
