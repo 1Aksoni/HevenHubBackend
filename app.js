@@ -18,12 +18,5 @@ app.use(cookieParser()); // Used to perform CRUD operations on user's browser co
 // Routes declaration
 app.use("/api/v1/users", userRouter);
 
-// Fetch data from HomeDataModel
-// app.get("/api/v1/home", (req, res) => {
-//   HomeDataModel.find()
-//     .then((data) => res.json(data)) // Corrected `resizeBy` to `res`
-//     .catch((err) => res.status(500).json({ error: err.message })); // Improved error handling
-// });
-
 app.use("/api/v1/homeData", homeDataRouter);
 export { app };

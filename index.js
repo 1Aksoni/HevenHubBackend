@@ -1,5 +1,4 @@
 import express from "express";
-import cors from "cors";
 import dotenv from "dotenv"; // Use import instead of require for dotenv
 import connectDB from "./db/db.js";
 import {app} from './app.js'
@@ -8,11 +7,7 @@ dotenv.config();
 
 // const app = express(); // Move app initialization before starting the server
 app.use(express.json()); // Convert incoming JSON to JS objects
-const corsOptions = {
-  origin: 'https://heven-hub-frontend.vercel.app/', // Or specific domain of your frontend
-  credentials: true, // This allows cookies to be sent across domains
-};
-app.use(cors(corsOptions)); // Enable CORS
+
 
 // Connect to MongoDB and then start the server
 connectDB()
