@@ -1,5 +1,5 @@
 import express from "express";
-import corsOptions from "cors";
+import cors from "cors";
 import dotenv from "dotenv"; // Use import instead of require for dotenv
 import connectDB from "./db/db.js";
 import {app} from './app.js'
